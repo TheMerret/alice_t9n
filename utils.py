@@ -16,7 +16,7 @@ def translate(text, lang_from="ru", lang_to="en"):
         "q": text,
     }
 
-    resp = requests.get(URL, params=params)
+    resp = requests.get(URL, params=params, headers=HEADERS)
     resp_json = resp.json()
     status_code = resp_json["responseStatus"]
     status_code = 200 if status_code is None else int(status_code)
